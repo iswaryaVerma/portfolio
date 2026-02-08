@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      width: 400px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3 class="text-center">User Login</h3>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn btn-success btn-block">Login</button>
+    </form>
+    <p class="mt-3 text-center">
+      <a href="profile-form.html">Signup</a>   |
+      <a href="forgetpassword.html">Forgot Password?</a>
+    </p>
+    <p id="errorMessage" class="text-danger text-center" style="display:none;">Invalid Email or Password!</p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let email = document.getElementById("loginEmail").value;
+      let password = document.getElementById("loginPassword").value;
+
+      // fetch stored password for that email
+      let storedPassword = localStorage.getItem(email);
+
+      if (storedPassword && storedPassword === password) {
+        alert("Login Successful!");
+        window.location.href = "userworkspace.html"; // redirect to dashboard
+      } else {
+        document.getElementById("errorMessage").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

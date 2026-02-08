@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile Form | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 1.5s ease;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-size: 1rem;
+      padding: 10px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,123,255,0.6);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-card">
+    <h3 class="text-center mb-4">Fill Your Profile</h3>
+    <form id="profileForm" onsubmit="saveProfile(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <input type="hidden" id="role" value="Candidate">
+
+      <button type="submit" class="btn btn-primary btn-block btn-custom">Save & Continue</button>
+    </form>
+  </div>
+
+  <script>
+    function saveProfile(event) {
+      event.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const role = document.getElementById('role').value;
+
+      // Save to localStorage
+      localStorage.setItem("userProfile", JSON.stringify({ name, email, role }));
+
+      // Redirect to profile page
+      window.location.href = "profile.html";
+    }
+  </script>
+</body>
+</html>

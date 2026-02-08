@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Resumes | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #9face6 0%, #74ebd5 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding-top: 50px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+    }
+    .hero-image {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+    .intro-text {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #222;
+      animation: fadeIn 2s ease;
+    }
+    .card {
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: #fff;
+      animation: fadeIn 1.5s ease;
+    }
+    .card h4 {
+      margin-bottom: 20px;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+    }
+    .file-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    /* Glow animation for buttons */
+    .btn-glow {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 20px #007bff, 0 0 40px #007bff, 0 0 60px #007bff;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #results table th, #results table td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero Image -->
+    <img src="https://static.vecteezy.com/system/resources/previews/008/990/879/original/continuous-one-line-drawing-interview-live-stream-tv-show-camera-crew-journalist-talking-to-guest-broadcaster-news-at-tv-studio-vlogging-single-line-draw-design-graphic-illustration-vector.jpg" 
+         alt="Upload Resumes" class="hero-image">
+        
+
+    <!-- Intro Text -->
+    <p class="intro-text">
+      Welcome! Upload your resumes and job descriptions here. Our AI system will analyze the resumes against the job description, 
+      rank them based on skill match, and help you find the best candidates quickly. Make sure your files are in PDF or Word format.
+    </p>
+
+    <!-- Upload Resume -->
+    <div class="card">
+      <h4>Upload Resume(s)</h4>
+      <form>
+        <div class="form-group">
+          <label class="file-label">Select Resume Files</label><br>
+          <input type="file" id="resumeInput" multiple hidden>
+          <button type="button" class="btn btn-primary btn-custom btn-glow" onclick="document.getElementById('resumeInput').click()">
+            <i class="fas fa-paperclip"></i> Choose Resumes
+          </button>
+          <span id="resumeName" style="margin-left:10px; font-weight:bold;">No file chosen</span>
+        </div>
+        <button type="submit" class="btn btn-success btn-custom btn-glow mt-3">Upload Resumes</button>
+      </form>
+    </div>
+
+    <!-- Upload Job Description -->
+    <div class="card">
+      <h4>Upload Job Description</h4>
+      <form>
+        <div class="form-group">
+          <label class="file-label">Select Job Description File</label><br>
+          <input type="file" id="jobInput" hidden>
+          <button type="button" class="btn btn-info btn-custom btn-glow" onclick="document.getElementById('jobInput').click()">
+            <i class="fas fa-paperclip"></i> Choose Job Description
+          </button>
+          <span id="jobName" style="margin-left:10px; font-weight:bold;">No file chosen</span>
+        </div>
+        <button type="submit" class="btn btn-success btn-custom btn-glow mt-3">Upload Job Description</button>
+      </form>
+    </div>
+
+    <!-- Processing / Results Section -->
+    <div class="card">
+      <h4>Processing & Results</h4>
+      <p>After uploading, the resumes will be analyzed against the job description and ranked.</p>
+      <button class="btn btn-info btn-custom btn-glow" onclick="showResults()">View Sample Results</button>
+
+      <!-- Placeholder Results -->
+      <div id="results" style="display:none; margin-top:20px;">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Candidate</th>
+              <th>Score</th>
+              <th>Matched Skills</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>92%</td>
+              <td>Python, Java, SQL</td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>85%</td>
+              <td>React, Node.js</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <script>
+    // Show selected file names
+    document.getElementById('resumeInput').addEventListener('change', function() {
+      const files = Array.from(this.files).map(f => f.name).join(', ');
+      document.getElementById('resumeName').textContent = files || 'No file chosen';
+    });
+
+    document.getElementById('jobInput').addEventListener('change', function() {
+      const file = this.files[0]?.name || 'No file chosen';
+      document.getElementById('jobName').textContent = file;
+    });
+
+    // Show sample results
+    function showResults() {
+      document.getElementById('results').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

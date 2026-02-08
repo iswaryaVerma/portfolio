@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Results | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #9face6 0%, #74ebd5 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding-top: 50px;
+      color: #333;
+    }
+    .container {
+      max-width: 950px;
+    }
+    .card {
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: #fff;
+      animation: fadeIn 1.5s ease;
+    }
+    h4 {
+      margin-bottom: 15px;
+    }
+    .intro-text {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #222;
+      animation: fadeIn 2s ease;
+    }
+    .filter-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .filter-group input, .filter-group select {
+      width: 48%;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #007bff;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .score-high { color: #28a745; font-weight: bold; }
+    .score-medium { color: #ffc107; font-weight: bold; }
+    .score-low { color: #dc3545; font-weight: bold; }
+    .skill-icon { margin-right: 5px; color: #007bff; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h4>Resume Results</h4>
+
+      <!-- Intro -->
+      <p class="intro-text">
+        Here are the analyzed resumes. Use the filters to search for specific skills or view the top candidates. 
+        The AI system has ranked each candidate based on skill matching and experience relevance.
+      </p>
+
+      <!-- Filters -->
+      <div class="filter-group">
+        <input type="text" id="skillFilter" class="form-control" placeholder="Search by Skill" onkeyup="filterResults()">
+        <select id="topFilter" class="form-control" onchange="filterResults()">
+          <option value="all">Show All</option>
+          <option value="top5">Top 5 Resumes</option>
+        </select>
+      </div>
+
+      <!-- Results Table -->
+      <table class="table table-bordered" id="resultsTable">
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>Score</th>
+            <th>Matched Skills</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/men/11.jpg" class="avatar" alt="John Doe"> John Doe</td>
+            <td class="score-high">92%</td>
+            <td><i class="fas fa-code skill-icon"></i>Python, <i class="fas fa-database skill-icon"></i>SQL, <i class="fab fa-java skill-icon"></i>Java</td>
+          </tr>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/women/12.jpg" class="avatar" alt="Jane Smith"> Jane Smith</td>
+            <td class="score-medium">85%</td>
+            <td><i class="fab fa-react skill-icon"></i>React, <i class="fas fa-server skill-icon"></i>Node.js</td>
+          </tr>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/men/13.jpg" class="avatar" alt="Mike Johnson"> Mike Johnson</td>
+            <td class="score-low">78%</td>
+            <td><i class="fas fa-code skill-icon"></i>Python, <i class="fas fa-server skill-icon"></i>Django</td>
+          </tr>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/women/14.jpg" class="avatar" alt="Emily Davis"> Emily Davis</td>
+            <td class="score-medium">88%</td>
+            <td><i class="fab fa-java skill-icon"></i>Java, <i class="fas fa-cogs skill-icon"></i>Spring Boot</td>
+          </tr>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/women/15.jpg" class="avatar" alt="Sarah Lee"> Sarah Lee</td>
+            <td class="score-medium">80%</td>
+            <td><i class="fab fa-react skill-icon"></i>React, <i class="fas fa-database skill-icon"></i>SQL</td>
+          </tr>
+          <tr>
+            <td><img src="https://randomuser.me/api/portraits/men/16.jpg" class="avatar" alt="David Brown"> David Brown</td>
+            <td class="score-low">75%</td>
+            <td><i class="fas fa-server skill-icon"></i>Node.js, <i class="fas fa-cogs skill-icon"></i>Express</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function filterResults() {
+      const skillInput = document.getElementById('skillFilter').value.toLowerCase();
+      const topOption = document.getElementById('topFilter').value;
+      const table = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+        const skills = rows[i].getElementsByTagName('td')[2].innerText.toLowerCase();
+        const score = parseInt(rows[i].getElementsByTagName('td')[1].innerText);
+
+        let skillMatch = skills.includes(skillInput);
+        let topMatch = true;
+        if (topOption === 'top5') topMatch = score >= 80;
+
+        rows[i].style.display = (skillMatch && topMatch) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

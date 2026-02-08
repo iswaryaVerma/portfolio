@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR Workspace | IRRSS</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .option-card {
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .option-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    section {
+      display: none;
+      padding: 60px 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    section.active {
+      display: block;
+      opacity: 1;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .card {
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      background: #fff;
+      margin-bottom: 20px;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Workspace Home -->
+  <section id="home" class="active container text-center">
+    <h1 class="mb-5">HR Workspace</h1>
+    <p class="mb-4">Select an option below:</p>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('postJob')">📄<br>Post Job</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('viewResumes')">📂<br>View Uploaded Resumes</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('screeningResults')">📊<br>Screening Results</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('scheduleInterviews')">📅<br>Schedule Interviews</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('analytics')">📈<br>Analytics Dashboard</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('manageJobs')">🛠️<br>Manage Job Listings</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('sendNotifications')">🔔<br>Send Notifications</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('settings')">⚙️<br>Settings</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post Job Section -->
+  <section id="postJob">
+    <div class="container">
+      <h2>Post Job</h2>
+      <div class="card">
+        <form>
+          <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" class="form-control" placeholder="Enter job title">
+          </div>
+          <div class="form-group">
+            <label>Job Description</label>
+            <textarea class="form-control" rows="4" placeholder="Enter job description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Submit Job</button>
+        </form>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- View Uploaded Resumes Section -->
+  <section id="viewResumes">
+    <div class="container">
+      <h2>Uploaded Resumes</h2>
+      <div class="card">
+        <p>Uploaded resumes will appear here after backend integration.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Screening Results Section -->
+  <section id="screeningResults">
+    <div class="container">
+      <h2>Screening Results</h2>
+      <div class="card">
+        <p>Screening results will appear here after backend processing.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Schedule Interviews Section -->
+  <section id="scheduleInterviews">
+    <div class="container">
+      <h2>Schedule Interviews</h2>
+      <div class="card">
+        <form>
+          <div class="form-group">
+            <label>Candidate Name</label>
+            <input type="text" class="form-control" placeholder="Enter candidate name">
+          </div>
+          <div class="form-group">
+            <label>Interview Date</label>
+            <input type="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Time</label>
+            <input type="time" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">Schedule</button>
+        </form>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Analytics Section -->
+  <section id="analytics">
+    <div class="container">
+      <h2>Analytics Dashboard</h2>
+      <div class="card">
+        <p>Statistics and charts will appear here after backend integration.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Manage Job Listings Section -->
+  <section id="manageJobs">
+    <div class="container">
+      <h2>Manage Job Listings</h2>
+      <div class="card">
+        <p>Job listings will appear here for editing or deletion.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Send Notifications Section -->
+  <section id="sendNotifications">
+    <div class="container">
+      <h2>Send Notifications</h2>
+      <div class="card">
+        <form>
+          <div class="form-group">
+            <label>Notification Message</label>
+            <textarea class="form-control" rows="3" placeholder="Type your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-info">Send Notification</button>
+        </form>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Settings Section -->
+  <section id="settings">
+    <div class="container">
+      <h2>Settings</h2>
+      <div class="card">
+        <p>HR account settings will appear here.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

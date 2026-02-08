@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Login | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #9face6 0%, #74ebd5 100%);
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      animation: fadeIn 1.5s ease;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+    }
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .login-card p.intro {
+      font-size: 0.95rem;
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>User Login</h2>
+    <p class="intro">
+      Access your account to upload resumes, track applications, and manage your profile efficiently.
+    </p>
+    <form>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block btn-custom">Login</button>
+    </form>
+    <p class="text-center mt-3">
+      <a href="module.html" class="btn btn-outline-primary btn-custom">⬅ Back to Home</a>
+    </p>
+  </div>
+</body>
+</html>

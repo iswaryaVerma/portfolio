@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil Spill Detection - Unity VR Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .demo-container {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .unity-badge {
+            background: linear-gradient(45deg, #000000, #333333);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        .feature-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        .vr-icon {
+            font-size: 2rem;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="demo-container">
+                    <div class="text-center mb-4">
+                        <div class="vr-icon mb-3">🥽</div>
+                        <h1 class="display-4 text-primary mb-3">Oil Spill Detection VR</h1>
+                        <p class="lead text-muted">Interactive Unity-based Environmental Simulation</p>
+                        <span class="unity-badge">Unity Engine</span>
+                        <span class="unity-badge">VR Ready</span>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="mb-3">🌊 Simulation Features</h3>
+                            <div class="feature-item">
+                                <h5>🛢️ Oil Spill Visualization</h5>
+                                <p class="mb-0">Realistic oil spill rendering and environmental impact modeling</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>🧽 Cleanup Tools</h5>
+                                <p class="mb-0">Interactive cleaning tools with absorption mechanics</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>🎮 VR Interaction</h5>
+                                <p class="mb-0">Hand tracking and VR controller support for immersive experience</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>🌍 Environmental Modeling</h5>
+                                <p class="mb-0">Realistic terrain and water physics simulation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h3 class="mb-3">⚙️ Technical Components</h3>
+                            <div class="mb-3">
+                                <h5>Unity Assets:</h5>
+                                <ul class="list-unstyled">
+                                    <li>📁 Scenes: Multiple simulation environments</li>
+                                    <li>🎯 Scripts: CleanerToolBehavior.cs, OilAbsorption.cs</li>
+                                    <li>🎮 XR Integration: VR hand controllers</li>
+                                    <li>🌊 Terrain: Auto-upgraded terrain system</li>
+                                </ul>
+                            </div>
+                            <div class="mb-3">
+                                <h5>VR Features:</h5>
+                                <ul class="list-unstyled">
+                                    <li>👋 Hand Tracking</li>
+                                    <li>🎮 Input System Integration</li>
+                                    <li>🥽 XR Toolkit Support</li>
+                                    <li>🎯 Interactive Prefabs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <h5>📋 Project Structure</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Main Scenes:</strong> OILSPILL.unity, oilll.unity, practice.unity</li>
+                                    <li><strong>Core Scripts:</strong> Oil absorption and cleaner tool behaviors</li>
+                                    <li><strong>VR Components:</strong> Hand controllers and XR integration</li>
+                                    <li><strong>Assets:</strong> Course library, samples, and terrain data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <div class="alert alert-warning">
+                            <strong>🎮 Note:</strong> This Unity VR project requires Unity Editor and VR headset for full experience.
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="/oilspill/OILSPILL.unity" class="btn btn-primary" target="_blank">
+                                🎮 Main Scene
+                            </a>
+                            <a href="/oilspill/CleanerToolBehavior.cs" class="btn btn-success" target="_blank">
+                                📝 View Scripts
+                            </a>
+                            <a href="/oilspill/OilAbsorption.cs" class="btn btn-info" target="_blank">
+                                🧽 Oil Physics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

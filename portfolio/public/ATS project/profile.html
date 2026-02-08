@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #9face6 0%, #74ebd5 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 1.5s ease;
+    }
+    .profile-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .profile-info {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-size: 1rem;
+      padding: 10px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,123,255,0.6);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <h2>User Profile</h2>
+    <div class="profile-info">
+      <!-- User details will load here -->
+    </div>
+    <div class="text-center">
+      <a href="profile-form.html" class="btn btn-warning btn-custom">Edit Profile</a>
+      <a href="userworkspace.html" class="btn btn-success btn-custom">Go to Upload Resumes</a>
+      <a href="module.html" class="btn btn-secondary btn-custom">Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    // Load user details from localStorage
+    const profile = JSON.parse(localStorage.getItem("userProfile"));
+
+    if (profile) {
+      document.querySelector(".profile-info").innerHTML = `
+        <p><strong>Name:</strong> ${profile.name}</p>
+        <p><strong>Email:</strong> ${profile.email}</p>
+        <p><strong>Role:</strong> ${profile.role}</p>
+      `;
+    } else {
+      document.querySelector(".profile-info").innerHTML = `
+        <p>No profile found. Please fill the form first.</p>
+        <a href="profile-form.html" class="btn btn-primary btn-custom mt-3">Fill Profile</a>
+      `;
+    }
+  </script>
+</body>
+</html>

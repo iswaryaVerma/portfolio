@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intelligent Requirement & Resume Screening System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container-custom {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 1150px;
+      width: 95%;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .left-section {
+      flex: 1;
+      text-align: left;
+      padding-right: 30px;
+    }
+
+    .left-section h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #222;
+      animation: slideIn 1.2s ease;
+    }
+
+    .left-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #444;
+      animation: fadeIn 2s ease;
+    }
+
+    .btn-group-custom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .btn-custom {
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .right-section {
+      flex: 1;
+      text-align: center;
+    }
+
+    .right-section img {
+      width: 95%;
+      max-width: 450px;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-custom">
+    <!-- Left Content -->
+    <div class="left-section">
+      <h1>Intelligent Requirement & Resume Screening System</h1>
+      <p>
+        Welcome to your smart assistant for resume filtering and ranking.  
+        Save time, improve hiring efficiency, and focus on the best candidates using our AI-powered system.  
+        Upload resumes and job descriptions, and let the system do the heavy lifting!
+      </p>
+      <div class="btn-group-custom">
+        <!-- Only Login Buttons -->
+        <a href="loginpageuser.html" class="btn btn-primary btn-custom">Login as User</a>
+        <a href="loginpagehr.html" class="btn btn-dark btn-custom">Login as HR</a>
+      </div>
+    </div>
+
+    <!-- Right Image Section -->
+    <div class="right-section">
+      <img src="https://interviewdesk.ai/wp-content/uploads/2024/07/The-Advent-of-Resume-Screening-Automation-669x502.jpg" alt="HR AI Screening Illustration">
+    </div>
+  </div>
+</body>
+</html>

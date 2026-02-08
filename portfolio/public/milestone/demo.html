@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Milestone Tracker - Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .demo-container {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .tech-badge {
+            background: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 3px;
+            display: inline-block;
+        }
+        .spring-logo {
+            color: #6db33f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="demo-container">
+                    <div class="text-center mb-4">
+                        <h1 class="display-4 text-primary mb-3">🎯 Career Milestone Tracker</h1>
+                        <p class="lead text-muted">Full-Stack Spring Boot Application for Professional Growth</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="mb-3">🚀 Key Features</h3>
+                            <div class="feature-card">
+                                <h5>📊 Skill Tracking</h5>
+                                <p class="mb-0">Monitor and track professional skills development over time</p>
+                            </div>
+                            <div class="feature-card">
+                                <h5>🏆 Achievement Management</h5>
+                                <p class="mb-0">Record and showcase career achievements and milestones</p>
+                            </div>
+                            <div class="feature-card">
+                                <h5>📈 Progress Analytics</h5>
+                                <p class="mb-0">Real-time data visualization and progress tracking</p>
+                            </div>
+                            <div class="feature-card">
+                                <h5>🔄 Career Updates</h5>
+                                <p class="mb-0">Dynamic career timeline with real-time updates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h3 class="mb-3">⚙️ Technology Stack</h3>
+                            <div class="mb-3">
+                                <h5>Backend:</h5>
+                                <span class="tech-badge spring-logo">Spring Boot</span>
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Maven</span>
+                                <span class="tech-badge">REST APIs</span>
+                            </div>
+                            <div class="mb-3">
+                                <h5>Frontend:</h5>
+                                <span class="tech-badge">React.js</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">HTML/CSS</span>
+                            </div>
+                            <div class="mb-3">
+                                <h5>Architecture:</h5>
+                                <span class="tech-badge">MVC Pattern</span>
+                                <span class="tech-badge">RESTful Services</span>
+                                <span class="tech-badge">Full-Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <h5>📋 Project Structure</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Spring Boot Application:</strong> CareerMilestoneTrackerApplication.java</li>
+                                    <li><strong>Maven Configuration:</strong> pom.xml with dependencies</li>
+                                    <li><strong>Resources:</strong> Static files, templates, and configuration</li>
+                                    <li><strong>Testing:</strong> Unit tests included</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <div class="alert alert-warning">
+                            <strong>⚠️ Note:</strong> This is a Spring Boot application that requires Java runtime and Maven to build and run.
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="/milestone/career-milestone-tracker/pom.xml" class="btn btn-primary" target="_blank">
+                                📄 View POM.xml
+                            </a>
+                            <a href="/milestone/career-milestone-tracker/src/main/java/com/careertracker/app/CareerMilestoneTrackerApplication.java" class="btn btn-success" target="_blank">
+                                ☕ Main Application
+                            </a>
+                            <a href="/milestone/career-milestone-tracker/HELP.md" class="btn btn-info" target="_blank">
+                                📚 Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

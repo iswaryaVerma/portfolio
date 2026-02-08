@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Profile | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 1.5s ease;
+    }
+    .profile-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .btn-custom {
+      border-radius: 30px;
+      padding: 10px 25px;
+      margin: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <h2>Admin Profile Form</h2>
+    <form id="adminProfileForm">
+      <div class="form-group">
+        <label for="adminName">Full Name</label>
+        <input type="text" class="form-control" id="adminName" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="adminEmail">Email</label>
+        <input type="email" class="form-control" id="adminEmail" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="adminContact">Contact Number</label>
+        <input type="tel" class="form-control" id="adminContact" placeholder="Enter contact number" required>
+      </div>
+      <div class="form-group">
+        <label for="adminDept">Department</label>
+        <input type="text" class="form-control" id="adminDept" placeholder="Enter your department" required>
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" class="form-control" id="adminPassword" placeholder="Set your password" required>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-custom">Save Profile</button>
+        <a href="admin-dashboard.html" class="btn btn-secondary btn-custom">Back to Dashboard</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Save Admin Profile to LocalStorage
+    document.getElementById("adminProfileForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const profileData = {
+        name: document.getElementById("adminName").value,
+        email: document.getElementById("adminEmail").value,
+        contact: document.getElementById("adminContact").value,
+        dept: document.getElementById("adminDept").value,
+        password: document.getElementById("adminPassword").value
+      };
+      localStorage.setItem("adminProfile", JSON.stringify(profileData));
+      alert("Profile saved successfully!");
+      window.location.href = "profilepageHR.html";
+    });
+
+    // Auto-fill if already saved
+    window.onload = function() {
+      const savedData = JSON.parse(localStorage.getItem("adminProfile"));
+      if (savedData) {
+        document.getElementById("adminName").value = savedData.name || "";
+        document.getElementById("adminEmail").value = savedData.email || "";
+        document.getElementById("adminContact").value = savedData.contact || "";
+        document.getElementById("adminDept").value = savedData.dept || "";
+        document.getElementById("adminPassword").value = savedData.password || "";
+      }
+    }
+  </script>
+</body>
+</html>

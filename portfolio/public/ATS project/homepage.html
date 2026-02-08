@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intelligent Requirement & Resume Screening System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      margin: 40px auto;
+      padding: 80px 20px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    .hero img {
+      max-width: 100%;
+      border-radius: 12px;
+      animation: floatImage 6s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes floatImage {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Floating Shapes */
+    .floating-shapes {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      background: #fff;
+      animation: moveShape 20s linear infinite;
+    }
+    .shape:nth-child(1) { width: 120px; height: 120px; top: 20%; left: 10%; animation-duration: 25s; }
+    .shape:nth-child(2) { width: 80px; height: 80px; top: 60%; left: 20%; animation-duration: 22s; }
+    .shape:nth-child(3) { width: 100px; height: 100px; top: 30%; left: 70%; animation-duration: 28s; }
+    .shape:nth-child(4) { width: 60px; height: 60px; top: 80%; left: 50%; animation-duration: 18s; }
+
+    @keyframes moveShape {
+      0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+      50%  { transform: translateY(-40px) translateX(20px) rotate(180deg); }
+      100% { transform: translateY(0) translateX(0) rotate(360deg); }
+    }
+
+    /* Features Section */
+    .features {
+      background: #ffffffcc;
+      border-radius: 12px;
+      margin: 40px auto;
+      padding: 60px 20px;
+    }
+    .features h2 { color: #004085; margin-bottom: 40px; }
+    .features img {
+      width: 70px; margin-bottom: 15px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .features img:hover { transform: scale(1.1); }
+
+    /* Steps Section */
+    .steps {
+      background: #ffffffcc;
+      border-radius: 12px;
+      margin: 40px auto;
+      padding: 60px 20px;
+    }
+    .steps h2 { color: #004085; margin-bottom: 40px; }
+    .step-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .step-card:hover { transform: translateY(-8px); }
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    /* About Section */
+    .about {
+      background: #ffffffcc;
+      border-radius: 12px;
+      margin: 40px auto;
+      padding: 60px 20px;
+    }
+    .about h2 { color: #004085; }
+    .about p { color: #333; font-size: 1.1rem; margin-top: 20px; }
+    .about img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 4px 16px rgba(0,0,0,0.1);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: url('https://www.transparenttextures.com/patterns/white-wall.png'), 
+                  linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      border-radius: 12px;
+      margin: 60px auto;
+      padding: 60px 30px;
+      color: #333;
+    }
+
+    .contact-info {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+      color: #fff;
+    }
+    .contact-info h2 { color: #fff; }
+    .contact-info ul li { margin: 10px 0; font-size: 1.1rem; }
+    .social-icons img {
+      width: 35px; margin-right: 10px;
+      transition: transform 0.3s;
+    }
+    .social-icons img:hover { transform: scale(1.2); }
+
+    .contact-form {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+    }
+    .contact-form h3 { color: #004085; font-weight: 600; }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-gradient:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Intelligent Requirement & Resume Screening System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#steps">Steps</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="module.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="floating-shapes">
+      <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-left">
+          <h1>Intelligent Requirement & Resume Screening System</h1>
+          <p>Automating recruitment with AI to match the best candidates effortlessly.</p>
+          <a href="module.html" class="btn btn-primary btn-lg mt-3">Let's Start</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://vitalflux.com/wp-content/uploads/2022/11/resume-screening-and-shortlisting-using-machine-learning-640x317.png" alt="Resume Screening">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features text-center">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="https://miro.medium.com/v2/resize:fit:1358/0*K5qRHLWNHa8MGZF7.png" alt="Smart Screening">
+          <h5>Smart Screening</h5>
+          <p>AI-based resume parsing and matching with job requirements.</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://img.icons8.com/color/96/teamwork.png" alt="Candidate Ranking">
+          <h5>Candidate Ranking</h5>
+          <p>Automatically ranks resumes based on relevance and skills.</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://img.icons8.com/color/96/speed.png" alt="Faster Hiring">
+          <h5>Faster Hiring</h5>
+          <p>Reduce manual effort and accelerate recruitment decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section id="steps" class="steps text-center">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">📤</div>
+            <h5>Step 1</h5>
+            <p>Upload job requirements and candidate resumes into the system.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">🤖</div>
+            <h5>Step 2</h5>
+            <p>AI automatically screens and ranks candidates by relevance.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">✅</div>
+            <h5>Step 3</h5>
+            <p>HR managers review the shortlist and schedule interviews.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about text-center">
+    <div class="container">
+      <h2>About the System</h2>
+      <p>
+        The Intelligent Requirement & Resume Screening System (IRRSS) uses advanced AI and NLP 
+        to transform recruitment. It eliminates repetitive manual screening, accelerates hiring, 
+        and ensures HR managers focus only on interviewing the most relevant candidates.
+      </p>
+      <div class="mt-4">
+        <img src="https://interviewdesk.ai/wp-content/uploads/2023/09/Unlocking-the-Power-of-Resume-Screening-AI_-A-Guide-for-HR-Professionals.png" 
+             alt="About IRRSS" class="img-fluid">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-md-5 contact-info">
+          <h2>Get in Touch</h2>
+          <p>We’d love to hear from you! Whether it’s a query, feedback, or collaboration idea, just drop us a message.</p>
+          <ul class="list-unstyled mt-4">
+            <li><strong>📍 Address:</strong> Chennai, India</li>
+            <li><strong>📧 Email:</strong> irrssupport@email.com</li>
+            <li><strong>📞 Phone:</strong> +91 98765 43210</li>
+          </ul>
+          <div class="social-icons mt-3">
+            <a href="#"><img src="https://img.icons8.com/color/48/facebook.png"/></a>
+            <a href="#"><img src="https://img.icons8.com/color/48/linkedin.png"/></a>
+            <a href="#"><img src="https://img.icons8.com/color/48/twitter.png"/></a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-md-7">
+          <div class="contact-form">
+            <h3 class="text-center mb-4">Send Us a Message</h3>
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name *" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email *" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="4" placeholder="Your Message *" required></textarea>
+              </div>
+              <button class="btn btn-gradient btn-block">🚀 Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Intelligent Requirement & Resume Screening System | All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

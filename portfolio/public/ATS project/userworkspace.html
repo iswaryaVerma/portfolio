@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard | AI Resume Screening</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #9face6 0%, #74ebd5 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .option-card {
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .option-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    section {
+      display: none;
+      padding: 60px 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    section.active {
+      display: block;
+      opacity: 1;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .card {
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      background: #fff;
+      margin-bottom: 20px;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home / Dashboard -->
+  <section id="home" class="active container text-center">
+    <h1 class="mb-5">AI Resume Screening</h1>
+    <p class="mb-4">Select an option below:</p>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('upload')">📂<br>Upload Resume</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('results')">📊<br>View Results</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('improve')">💡<br>Improve Resume</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('jobSuggestions')">🔍<br>Job Suggestions</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('quickTips')">💬<br>Quick Tips</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('jobMatches')">✅<br>Job Matches</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="option-card" onclick="showSection('history')">🕒<br>History</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Resume Section -->
+  <section id="upload">
+    <div class="container">
+      <h2>Upload Resume</h2>
+      <div class="card">
+        <form>
+          <div class="form-group">
+            <label>Select Resume File(s)</label>
+            <input type="file" class="form-control" multiple>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- View Results Section -->
+  <section id="results">
+    <div class="container">
+      <h2>View Results</h2>
+      <div class="card">
+        <p>Results will appear here after backend processing.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+<!-- Improve Resume Section -->
+<section id="improve" class="py-5" style="background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);">
+  <div class="container text-center">
+    <h2 class="mb-4 font-weight-bold" data-aos="fade-down">🚀 Improve Your Resume</h2>
+    <div class="row align-items-center">
+      
+      <!-- Image Side -->
+      <div class="col-md-5 mb-4" data-aos="zoom-in">
+        <img src="https://imageio.forbes.com/specials-images/imageserve/5d76defaaea4d30008f088ad/0x0.jpg?format=jpg&width=1200" 
+             alt="Improve Resume" 
+             class="img-fluid rounded shadow-lg">
+        <!-- Replace with your own image -->
+      </div>
+
+      <!-- Tips Side -->
+      <div class="col-md-7">
+        <div class="card shadow-lg border-0 rounded-lg p-4" data-aos="fade-left">
+          <ul class="list-unstyled text-left">
+            <li class="mb-3">✅ <strong>Start with a Strong Summary:</strong> Write a 3–4 line professional summary that highlights your experience, key skills, and career goals.</li>
+            <li class="mb-3">✅ <strong>Add Measurable Results:</strong> Instead of “Worked on a project,” say “Led a project that improved system performance by 30%.”</li>
+            <li class="mb-3">✅ <strong>Show Leadership & Teamwork:</strong> Include examples where you managed people, collaborated with teams, or resolved conflicts.</li>
+            <li class="mb-3">✅ <strong>Use Job-Specific Keywords:</strong> Tailor your resume with keywords from job descriptions to pass ATS (Applicant Tracking Systems).</li>
+            <li class="mb-3">✅ <strong>Keep it Concise:</strong> Stick to 1–2 pages. Recruiters spend only 6–7 seconds scanning a resume.</li>
+            <li class="mb-3">✅ <strong>Use Powerful Action Verbs:</strong> Start bullets with words like “Led,” “Created,” “Designed,” “Implemented,” instead of “Responsible for.”</li>
+            <li class="mb-3">✅ <strong>Focus on Achievements, Not Duties:</strong> Highlight results you delivered rather than listing job responsibilities.</li>
+            <li class="mb-3">✅ <strong>Ensure Readability:</strong> Use consistent fonts, spacing, and bullet points. Avoid overusing colors or fancy designs.</li>
+            <li class="mb-3">✅ <strong>Include Certifications:</strong> Mention relevant courses, certifications, and licenses to add credibility to your profile.</li>
+            <li class="mb-3">✅ <strong>Highlight Technical Skills:</strong> Add programming languages, tools, or platforms you have mastered.</li>
+            <li class="mb-3">✅ <strong>Customize for Each Job:</strong> Modify your resume to align with the role you’re applying for instead of using the same version everywhere.</li>
+            <li class="mb-3">✅ <strong>Show Career Progression:</strong> Highlight promotions, recognitions, or increased responsibilities across jobs.</li>
+            <li class="mb-3">✅ <strong>Add Extracurricular Achievements:</strong> Include volunteer work, hackathons, or leadership roles outside of work/college.</li>
+            <li class="mb-3">✅ <strong>Link Your Online Profiles:</strong> Add LinkedIn, GitHub, or portfolio links so employers can view more of your work.</li>
+            <li class="mb-3">✅ <strong>Proofread Thoroughly:</strong> Avoid grammar and spelling mistakes. Even a small error can create a negative impression.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Back Button -->
+    <button class="btn btn-dark mt-4 px-4 py-2 rounded-pill" data-aos="fade-up" onclick="showSection('home')">
+      ⬅ Back to Home
+    </button>
+  </div>
+</section>
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000
+  });
+</script>
+
+<!-- Job Suggestions Section -->
+<section id="jobSuggestions" class="py-5" style="background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);">
+  <div class="container text-center">
+    <h2 class="mb-4 font-weight-bold" data-aos="fade-down" data-aos-duration="1000">
+      💼 Job Suggestions
+    </h2>
+
+    <div class="row align-items-center">
+      
+      <!-- Image Side -->
+      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="1200">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.znHfU_TRB39cQAkiQSPlbgHaDt?pid=Api&P=0&h=180" alt="Job Suggestions" class="img-fluid rounded shadow-lg">
+        <!-- Replace above link with your own image -->
+      </div>
+
+      <!-- Job Cards -->
+      <div class="col-md-8">
+        <div class="row">
+          
+          <!-- Tech Jobs -->
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>👨‍💻 Software Engineer</h5>
+              <p class="mb-0"><strong>Skills:</strong> Java, Spring Boot</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>📊 Data Analyst</h5>
+              <p class="mb-0"><strong>Skills:</strong> SQL, Excel, Python</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>🌐 Frontend Developer</h5>
+              <p class="mb-0"><strong>Skills:</strong> HTML, CSS, JS, React</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="800">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>⚙️ Backend Developer</h5>
+              <p class="mb-0"><strong>Skills:</strong> Node.js, Express, Databases</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1000">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>☁️ Cloud Engineer</h5>
+              <p class="mb-0"><strong>Skills:</strong> AWS, Azure, Docker, Kubernetes</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1200">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>🤖 AI/ML Engineer</h5>
+              <p class="mb-0"><strong>Skills:</strong> Python, TensorFlow, NLP</p>
+            </div>
+          </div>
+
+          <!-- Business / Management Jobs -->
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1400">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>📋 Project Manager</h5>
+              <p class="mb-0"><strong>Skills:</strong> Agile, Communication</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1600">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>📈 Business Analyst</h5>
+              <p class="mb-0"><strong>Skills:</strong> Requirements, Data Visualization</p>
+            </div>
+          </div>
+
+          <!-- Creative / Other Jobs -->
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1800">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>🎨 UI/UX Designer</h5>
+              <p class="mb-0"><strong>Skills:</strong> Figma, Adobe XD, Wireframing</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="2000">
+            <div class="card shadow-lg border-0 rounded-lg p-3 h-100">
+              <h5>📝 Technical Writer</h5>
+              <p class="mb-0"><strong>Skills:</strong> Documentation, Communication</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <button class="btn btn-dark mt-4 px-4 py-2 rounded-pill" data-aos="fade-up" data-aos-duration="1000" onclick="showSection('home')">
+      ⬅ Back to Home
+    </button>
+  </div>
+</section>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000
+  });
+</script>
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Quick Tips Section -->
+<section id="quickTips" class="py-5" style="background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);">
+  <div class="container text-center">
+    
+    <!-- Heading -->
+    <h2 class="mb-4 font-weight-bold" data-aos="fade-down" data-aos-duration="1000">
+      ⚡ Quick Tips to Improve Your Resume
+    </h2>
+
+    <div class="row align-items-center">
+      
+      <!-- Image -->
+      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="1200">
+        <img src="https://img.freepik.com/premium-vector/quick-tips-with-speech-bubble-yellow-lightbulb-idea_469478-58.jpg?w=2000" 
+             alt="Quick Tips" 
+             class="img-fluid rounded-circle shadow-lg">
+        <!-- Replace above link with your own image -->
+      </div>
+
+      <!-- Tips List -->
+      <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-lg p-4" 
+             style="background: white;" 
+             data-aos="fade-left" 
+             data-aos-duration="1200">
+
+          <ul class="list-unstyled text-left mb-0">
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="200">
+              💡 <strong>Use Relevant Keywords:</strong> Scan job descriptions and include industry-specific terms so that Applicant Tracking Systems (ATS) can shortlist your resume.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="400">
+              💡 <strong>Keep it Concise:</strong> Stick to 1–2 pages. Recruiters spend only a few seconds skimming resumes, so highlight only the most important achievements.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="600">
+              💡 <strong>Show Measurable Achievements:</strong> Replace vague phrases with numbers. For example: “Improved efficiency by 25%” or “Increased sales by ₹5 lakhs in 6 months.”
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="800">
+              💡 <strong>Tailor for Each Role:</strong> Avoid one-size-fits-all. Customize your resume to match the specific skills and requirements of the job.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="1000">
+              💡 <strong>Highlight Skills & Certifications:</strong> Add relevant certifications, online courses, and technical skills that prove your expertise.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="1200">
+              💡 <strong>Focus on Impact, Not Just Duties:</strong> Instead of “Handled customer queries,” say “Resolved 95% of customer issues within 24 hours.”
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="1400">
+              💡 <strong>Use Action Verbs:</strong> Start bullet points with strong verbs like “Led,” “Designed,” “Implemented,” “Achieved,” instead of “Responsible for.”
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="1600">
+              💡 <strong>Keep Formatting Professional:</strong> Use clean fonts, proper spacing, and consistent alignment. Avoid too many colors or decorative fonts.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="1800">
+              💡 <strong>Include a Summary Statement:</strong> Start with a short professional summary (3–4 lines) highlighting your key skills and career goals.
+            </li>
+            <li class="mb-3" data-aos="fade-up" data-aos-delay="2000">
+              💡 <strong>Proofread Carefully:</strong> Spelling or grammar mistakes can ruin first impressions. Use tools like Grammarly or ask a friend to review.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <button class="btn btn-dark mt-4 px-4 py-2 rounded-pill" 
+            data-aos="fade-up" 
+            data-aos-duration="1000" 
+            onclick="showSection('home')">
+      ⬅ Back to Home
+    </button>
+  </div>
+</section>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000
+  });
+</script>
+
+
+  <!-- Job Matches Section -->
+  <section id="jobMatches">
+    <div class="container">
+      <h2>Job Matches</h2>
+      <div class="card">
+        <p>Matching jobs will appear here after processing.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section id="history">
+    <div class="container">
+      <h2>History</h2>
+      <div class="card">
+        <p>Your previous activities will appear here.</p>
+      </div>
+      <button class="btn btn-secondary back-btn" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
